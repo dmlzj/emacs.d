@@ -7,5 +7,6 @@ ac-comphist.dat
 projectile*
 recentf
 tramp
-transient
+transient/
+auto-save-list/
 node_modules
