@@ -1,0 +1,11 @@
+GPATH
+GRTAGS
+GTAGS
+.ac-php-conf.json
+ac-comphist.dat
+.org-id-locations
+projectile*
+recentf
+tramp
+transient
+node_modules
