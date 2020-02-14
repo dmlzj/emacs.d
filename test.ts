@@ -58,4 +58,38 @@ console.log(c)
 let d: string[] = ['t', 'ss']
 console.log(d)
 declare let Jquery: (selector: string) => any;
-Jquery('.aaa').s
+
+let tm: [string, number] = ['tom', 23];
+console.log(tm)
+
+class Animal {
+    name: string
+    static color: string = 'red'
+    constructor(name: string) {
+	this.name = name;
+    }
+    sayHi(): string {
+	return `My name is ${this.name}`;
+    }
+    static isAnimal(o): boolean {
+	return o instanceof Animal
+    }
+}
+
+let dog = new Animal('dog');
+console.log(dog.sayHi());
+
+class Cat extends Animal {
+    constructor(name: string) {
+	super(name);
+    }
+    sayHi(): string {
+	return `test ${super.sayHi()}`
+    }
+}
+let cat = new Cat('dmlzj')
+console.log(cat.sayHi())
+
+console.log(Animal.isAnimal(cat))
+
+console.log(Animal.color)

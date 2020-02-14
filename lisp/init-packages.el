@@ -36,6 +36,11 @@
 		      super-save
 		      projectile
 		      ggtags
+		      use-package
+		      powerline
+		      dashboard
+		      page-break-lines
+		      all-the-icons
 		      ;; --- Lang Mode ---
 		      js2-mode
 		      web-mode

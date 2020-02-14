@@ -3,6 +3,14 @@
 ;; 增强内置功能
 ;;; code:
 
+;; 启动页设置
+(dashboard-setup-startup-hook)
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
+
+;; 使用ggtags-mode
 (add-hook 'c-mode-common-hook
           (lambda ()
             (when (derived-mode-p 'go-mode 'php-mode 'js2-mode)

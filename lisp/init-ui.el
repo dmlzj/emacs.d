@@ -3,7 +3,8 @@
 ;; 设置主题
 (add-to-list 'my/packages 'monokai-theme)
 (load-theme 'monokai 1)
-
+;; (require 'powerline)
+(powerline-default-theme)
 ;; 关闭工具栏
 (tool-bar-mode -1)
 
@@ -24,5 +25,7 @@
 
 ;; 更改字体大小14pt
 (set-face-attribute 'default nil :height 140)
+;; 当前行高亮
+(global-hl-line-mode 1)
 
 (provide 'init-ui)
