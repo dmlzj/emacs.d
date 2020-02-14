@@ -20,6 +20,7 @@
 		      company-php
 		      company-go
 		      tide
+		      docker
 		      ;; --- Themes ---
 		      monokai-theme
 		      ;; --- Better Editor ---
@@ -37,6 +38,7 @@
 		      projectile
 		      ggtags
 		      use-package
+		      
 		      powerline
 		      dashboard
 		      page-break-lines
