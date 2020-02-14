@@ -36,13 +36,15 @@
 		      super-save
 		      projectile
 		      ggtags
-		      ;; --- Major Mode ---
-		      flycheck
+		      ;; --- Lang Mode ---
 		      js2-mode
 		      web-mode
 		      go-mode
 		      vue-mode
 		      nginx-mode
+		      tss
+		      ;; --- Major Mode ---
+		      flycheck
 		      ;; --- Minor Mode ---
 		      nodejs-repl
 		      exec-path-from-shell

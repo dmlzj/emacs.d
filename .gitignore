@@ -10,3 +10,5 @@ tramp
 transient/
 auto-save-list/
 node_modules
+session.*
+qr_*

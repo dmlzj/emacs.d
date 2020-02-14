@@ -90,6 +90,17 @@
 			 (company-mode)
 			 )
 	  )
+;; autocomplete-mode
+;; 设置为t表示忽略大小写，设置为nil表示区分大小写
+;; 默认情况下为smart，表示如果输入的字符串不含有大写字符才会忽略大小写
+(require 'auto-complete-config)
+(ac-config-default)
+
+(setq ac-ignore-case t)
+(setq ac-use-menu-map t)
+(define-key ac-menu-map "\C-n" 'ac-next)
+(define-key ac-menu-map "\C-p" 'ac-previous)
+
 
 ;; (add-hook 'go-mode-hook
 ;;           '(lambda ()
