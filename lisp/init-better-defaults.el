@@ -8,7 +8,13 @@
 (use-package dashboard
   :ensure t
   :config
-  (dashboard-setup-startup-hook))
+  (dashboard-setup-startup-hook)
+  (setq dashboard-footer "Hello dmlzj, good luck for you today!")
+  ;; (setq dashboard-footer-icon (all-the-icons-octicon "dashboard"
+						     ;; :height 1.1
+						     ;; :v-adjust -0.05
+						     ;; :face 'font-lock-keyword-face))
+  )
 
 ;; 使用ggtags-mode
 (add-hook 'c-mode-common-hook

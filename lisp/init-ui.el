@@ -23,8 +23,14 @@
 ;; 默认全屏
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 
+;; 设置字体source code pro
+(set-frame-font "SourceCodePro-12")
+
+;; 设置neotree icon
+(setq inhibit-compacting-font-caches t)
+(setq neo-theme 'icons)
 ;; 更改字体大小14pt
-(set-face-attribute 'default nil :height 140)
+;; (set-face-attribute 'default nil :height 140)
 ;; 当前行高亮
 (global-hl-line-mode 1)
 
