@@ -13,10 +13,10 @@
 (global-set-key (kbd "C-c h") 'ag-regexp-project-at-point)
 
 
-(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "M-x") 'helm-M-x)
 
 ;; 查找文件
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 (global-set-key (kbd "C-h f") 'counsel-describe-function)
 
@@ -29,7 +29,9 @@
 (global-set-key (kbd "C-h C-f") 'find-function)
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
-(global-set-key (kbd "C-x b") 'list-buffers)
+
+;; 显示buffer list
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
 
 ;; 搜索文件
 (global-set-key (kbd "C-c p f") 'counsel-git)
