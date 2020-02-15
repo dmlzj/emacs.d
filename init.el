@@ -1,6 +1,7 @@
 ;; 插件设置
 (package-initialize)
 (add-to-list 'load-path "~/.emacs.d/lisp/")
+
 (require 'init-packages)
 
 ;; 显示设置

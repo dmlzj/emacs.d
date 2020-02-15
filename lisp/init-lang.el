@@ -20,6 +20,10 @@
                    (unless (tide-current-server)
                      (tide-restart-server))
                    )))
+;; html自动完成
+(add-to-list 'load-path "~/.emacs.d/package/zencoding/")
+(require 'zencoding-mode)
+(add-hook 'sgml-mode-hook 'zencoding-mode) ;;Auto-start on any markup modes
 
 ;; 语法检测
 (global-flycheck-mode)
