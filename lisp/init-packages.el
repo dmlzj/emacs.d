@@ -38,6 +38,7 @@
 		      projectile
 		      ggtags
 		      use-package
+		      multi-term
 		      
 		      powerline
 		      dashboard
