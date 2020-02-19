@@ -135,7 +135,7 @@
 
 ;; 弹窗插件
 (require 'popwin)    ;;when require, wh(setq company-minimum-prefix-length 1)en not require
-(popwin-mode t)
+(popwin-mode 1)
 
 ;; 自动完成括号
 ;; (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)

@@ -45,12 +45,15 @@
 		      page-break-lines
 		      all-the-icons
 		      ;; --- Lang Mode ---
+		      rjsx-mode
+		      multi-web-mode
 		      js2-mode
 		      web-mode
 		      go-mode
 		      vue-mode
 		      nginx-mode
 		      tss
+		      emmet-mode
 		      ;; --- Major Mode ---
 		      flycheck
 		      ;; --- Minor Mode ---

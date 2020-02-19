@@ -2,41 +2,62 @@
 ;;;company --- Summary
 
 ;;; code:
+
 (global-company-mode t)
 (setq-default company-tooltip-limit 20)                      ; bigger popup window
 (setq-default company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
 (setq-default company-echo-delay 0)                          ; remove annoying blinking
 (setq-default company-begin-commands '(self-insert-command)) ; start autocompletion only after typin
-
-(dolist (hook (list
-               'js2-mode-hook
-               'rjsx-mode-hook
-               'typescript-mode-hook
-               ))
-  (add-hook hook (lambda ()
-                   ;; 初始化 tide
-                   (tide-setup)
-                   ;; 当 tsserver 服务没有启动时自动重新启动
-                   (unless (tide-current-server)
-                     (tide-restart-server))
-                   )))
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous))
+;; (dolist (hook (list
+;;                'js2-mode-hook
+;;                'rjsx-mode-hook
+;;                'typescript-mode-hook
+;;                ))
+;;   (add-hook hook (lambda ()
+;;                    ;; 初始化 tide
+;;                    (tide-setup)
+;;                    ;; 当 tsserver 服务没有启动时自动重新启动
+;;                    (unless (tide-current-server)
+;;                      (tide-restart-server))
+;;                    )))
 ;; html自动完成
 (add-to-list 'load-path "~/.emacs.d/package/zencoding/")
 (require 'zencoding-mode)
 (add-hook 'sgml-mode-hook 'zencoding-mode) ;;Auto-start on any markup modes
+(add-hook 'web-mode-hook 'zencoding-mode) ;;Auto-start on any markup modes
+;; (add-hook 'web-mode-hook 'emmet-mode) ;;Auto-start on any markup modes
+(add-hook 'rjsx-mode-hook 'zencoding-mode) ;;Auto-start on any markup modes
+
 
 ;; 语法检测
 (global-flycheck-mode)
 
-;; config js2-mode for js files
-(setq auto-mode-alist
-      (append
-       '(("\\.js\\'" . js2-mode))
-       '(("\\.html\\'" . web-mode))
-       '(("\\.vue\\'" . web-mode))
+;; ;; config js2-mode for js files
+;; (setq auto-mode-alist
+;;       (append
+;;        '(("\\.js\\'" . js2-mode))
+;;        '(("\\.html\\'" . web-mode))
+;;        '(("\\.vue\\'" . web-mode))
 
-       auto-mode-alist))
-(add-hook 'js2-mode-hook 'hs-minor-mode)
+;;        auto-mode-alist))
+;; (add-hook 'js2-mode-hook 'hs-minor-mode)
+
+;; (setq web-mode-content-types-alist
+;;       '(("vue" . "\\.vue\\'")))
+
+;; (defun my/web-vue-setup()
+;;   (setq web-mode-style-padding 0
+;;         web-mode-script-padding 0))
+
+;; (add-hook 'web-mode-hook
+;;           (lambda ()
+;;             (cond ((equal web-mode-content-type "vue")
+;;                    (my/web-vue-setup)))))
 
 ;; php
 (require 'php-mode)
@@ -63,24 +84,15 @@
                'ac-php-location-stack-back)))
 
 ;;; web-mode
-(add-hook 'web-mode-hook 'hs-minor-mode)
-;; 用于在两个空格和四个空格之间进行切换
-(defun my-toggle-web-indent ()
-  (interactive)
-  ;; web development
-  (if (or (eq major-mode 'js-mode) (eq major-mode 'js2-mode))
-      (progn
-        (setq js-indent-level (if (= js-indent-level 2) 4 2))
-        (setq js2-basic-offset (if (= js2-basic-offset 2) 4 2))))
+;; (add-hook 'web-mode-hook 'hs-minor-mode)
+;; (setq mweb-default-major-mode 'html-mode)
+;; (setq mweb-tags 
+;;   '((php-mode "<\\?php\\|<\\? \\|<\\?=" "\\?>")
+;;     (js-mode  "<script[^>]*>" "</script>")
+;;     (css-mode "<style[^>]*>" "</style>")))
+;; (setq mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5" "vue"))
+;; (multi-web-global-mode 1)
 
-  (if (eq major-mode 'web-mode)
-      (progn (setq web-mode-markup-indent-offset (if (= web-mode-markup-indent-offset 2) 4 2))
-             (setq web-mode-css-indent-offset (if (= web-mode-css-indent-offset 2) 4 2))
-             (setq web-mode-code-indent-offset (if (= web-mode-code-indent-offset 2) 4 2))))
-  (if (eq major-mode 'css-mode)
-      (setq css-indent-offset (if (= css-indent-offset 2) 4 2)))
-
-  (setq indent-tabs-mode nil))
 
 ;; golang
 
@@ -99,13 +111,13 @@
 ;; autocomplete-mode
 ;; 设置为t表示忽略大小写，设置为nil表示区分大小写
 ;; 默认情况下为smart，表示如果输入的字符串不含有大写字符才会忽略大小写
-(require 'auto-complete-config)
-(ac-config-default)
+;; (require 'auto-complete-config)
+;; (ac-config-default)
 
-(setq ac-ignore-case t)
-(setq ac-use-menu-map t)
-(define-key ac-menu-map "\C-n" 'ac-next)
-(define-key ac-menu-map "\C-p" 'ac-previous)
+;; (setq ac-ignore-case t)
+;; (setq ac-use-menu-map t)
+;; (define-key ac-menu-map "\C-n" 'ac-next)
+;; (define-key ac-menu-map "\C-p" 'ac-previous)
 
 
 ;; (add-hook 'go-mode-hook

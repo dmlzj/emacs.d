@@ -1,7 +1,6 @@
 function sayHello(persion: string) {
     return 'hello ' + persion;
 }
-
 let user = 'tom';
 console.log(sayHello(user));
 

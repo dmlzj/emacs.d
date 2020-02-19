@@ -13,6 +13,8 @@
 ;; 编程语言设置
 
 (require 'init-lang)
+;; web
+(require 'init-web)
 
 ;; org 设置
 (require 'init-org)
