@@ -3,6 +3,11 @@
 
 ;;; code:
 ;; 用于在两个空格和四个空格之间进行切换
+(setq-default js-indent-level 2)
+(setq-default js2-basic-offset 2)
+(setq-default css-indent-offset 2)
+(setq-default typescript-indent-level 2)
+
 (defun my-toggle-web-indent ()
   (interactive)
   ;; web development
@@ -20,7 +25,7 @@
 
   (setq indent-tabs-mode nil))
 
-
+;; web-mode配置
 (use-package web-mode
   :mode ("\\.html\\'" . web-mode)
   :mode ("\\.vue\\'" . web-mode)
@@ -49,6 +54,11 @@
 	 ("\\.tsx\\'" . typescript-mode)
 	 )
   )
+(use-package rjsx-mode
+  :mode (
+	 ("\\.tsx\\'" . rjsx-mode)
+	 )
+  )
 
 (use-package js2-mode
   :mode "\\.js$")
@@ -66,13 +76,5 @@
                    (unless (tide-current-server)
                      (tide-restart-server))
                    )))
-;; (use-package tide
-;;   :after (typescript-mode company flycheck)
-;;   :hook ((typescript-mode . tide-setup)
-;;          (typescript-mode . tide-hl-identifier-mode)
-;;          (before-save . tide-format-before-save))
-;;   :init
-;;   )
-
 (provide 'init-web)
 ;;; init-web.el ends here

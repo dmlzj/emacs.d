@@ -1,10 +1,11 @@
 <template>
-  <div>s</div>
+  <div>
+    <a>test</a>
+  </div>
 </template>
 <script>
  export default {
-   create() {
-     console.log('ss')
+   created() {
    }
  }
 </script>

@@ -45,6 +45,7 @@
 		      page-break-lines
 		      all-the-icons
 		      ;; --- Lang Mode ---
+		      
 		      rjsx-mode
 		      multi-web-mode
 		      js2-mode

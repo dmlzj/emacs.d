@@ -3,6 +3,7 @@
 
 ;;; code:
 
+;; 自动提示
 (global-company-mode t)
 (setq-default company-tooltip-limit 20)                      ; bigger popup window
 (setq-default company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
@@ -13,18 +14,7 @@
   (define-key company-active-map (kbd "M-p") nil)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
-;; (dolist (hook (list
-;;                'js2-mode-hook
-;;                'rjsx-mode-hook
-;;                'typescript-mode-hook
-;;                ))
-;;   (add-hook hook (lambda ()
-;;                    ;; 初始化 tide
-;;                    (tide-setup)
-;;                    ;; 当 tsserver 服务没有启动时自动重新启动
-;;                    (unless (tide-current-server)
-;;                      (tide-restart-server))
-;;                    )))
+
 ;; html自动完成
 (add-to-list 'load-path "~/.emacs.d/package/zencoding/")
 (require 'zencoding-mode)
@@ -33,6 +23,11 @@
 ;; (add-hook 'web-mode-hook 'emmet-mode) ;;Auto-start on any markup modes
 (add-hook 'rjsx-mode-hook 'zencoding-mode) ;;Auto-start on any markup modes
 
+;; 代码片段
+(setq yas-snippet-dirs
+      '("~/.emacs.d/snippets"                 ;; personal snippets
+        ))
+(yas-global-mode 1)
 
 ;; 语法检测
 (global-flycheck-mode)

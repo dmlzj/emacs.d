@@ -78,6 +78,10 @@
 ;;; magit配置
 ;; 快速切换分支
 (global-set-key (kbd "C-c g c") 'magit-checkout)
+
+;; 查看分支状态
+(global-set-key (kbd "C-c g s") 'magit-status)
+
 ;; 快速切换并创建分支
 (global-set-key (kbd "C-c g n") 'magit-branch-and-checkout)
 ;; 快速commit
