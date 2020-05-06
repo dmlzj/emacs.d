@@ -7,7 +7,7 @@ $source_file = file($file_dir);
 // 对比文件路径
 $target_file_name = '/Users/dmlzj/www/weex/OneOne/src/js/config/lang/zh.js';
 
-
+$is_have = false;
 foreach($source_file as $line => $content){
     // echo 'line '.($line + 1).':'.$content;
     $pattern = "/lang\(\'(.*)\'/U";
@@ -30,6 +30,12 @@ foreach($source_file as $line => $content){
             $target_file_length = count($target_file);
 
             if (!$flag) {
+                if (!$is_have) {
+                    // 插入文件地址
+                    $str = '    // '. $file_dir . "\n";
+                    insert($target_file_name, $target_file_length - 2, $str);
+                    $is_have = true;
+                }
                 $str = "    '" . $content . "': '" . $content . "',\n";
                 // print_r($str);exit();
                 insert($target_file_name, $target_file_length - 2, $str);
