@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: create lang: this.lang('')
+# key: l0
+# --
+this.lang('$0')

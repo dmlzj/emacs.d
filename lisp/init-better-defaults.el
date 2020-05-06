@@ -15,6 +15,8 @@
 						     ;; :v-adjust -0.05
 						     ;; :face 'font-lock-keyword-face))
   )
+
+
 ;; neotree 根据当前文件显示目录
 (setq-default neo-smart-open t)
 ;; 使用ggtags-mode

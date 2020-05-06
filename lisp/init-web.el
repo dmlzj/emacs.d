@@ -3,9 +3,9 @@
 
 ;;; code:
 ;; 用于在两个空格和四个空格之间进行切换
-(setq-default js-indent-level 2)
-(setq-default js2-basic-offset 2)
-(setq-default css-indent-offset 2)
+(setq-default js-indent-level 4)
+(setq-default js2-basic-offset 4)
+(setq-default css-indent-offset 4)
 (setq-default typescript-indent-level 2)
 
 (defun my-toggle-web-indent ()

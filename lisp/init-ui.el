@@ -24,8 +24,20 @@
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 
 ;; 设置字体source code pro
-(set-frame-font "SourceCodePro-12")
+;(set-frame-font "SourceCodePro")
+;; -----------------------------------------------------------------------------
+;; setting font for mac system
+;; -----------------------------------------------------------------------------
+;; Setting English Font 
+(set-face-attribute
+ 'default nil :font "Source Code Pro 16")
+;; Chinese Font 配制中文字体
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+  (set-fontset-font (frame-parameter nil 'font)
+                    charset
+                    (font-spec :family "PingFang SC" :size 16)))
 
+;; Note: you can chang "PingFang SC" to "Microsoft YaHei" or other fonts
 ;; 设置neotree icon
 (setq inhibit-compacting-font-caches t)
 (setq neo-theme 'icons)

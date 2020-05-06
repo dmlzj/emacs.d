@@ -1,0 +1,23 @@
+(defun my-test (name)
+    (interactive "Please input file name: ")
+
+    (shell-command "php test.php -a " name)
+  ;; (setq fileName (current-buffer))
+  ;; (message fileName)
+  ;; (interactive)
+  ;; ;; web development
+  ;; ;; (setq content (buffer-string))
+  ;; (setq regex "lang('\\(.*\\)')")
+  ;; (setq mylist (list))
+  ;; (while (re-search-forward regex nil t)
+  ;;   ;; (message "完整匹配结果：%s" (match-string 0))
+  ;;   (message "%s" (match-string 1))
+  ;;   (setq val (format "%s" (match-string 1)))
+  ;;   (push val mylist)
+  ;;   )
+  ;; ;; (print-elements-of-list mylist)
+  ;; (setq a (mapconcat 'identity mylist ","))
+  ;; (print a)
+  )
+(my-test)
+

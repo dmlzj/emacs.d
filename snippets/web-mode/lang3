@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: create lang: {{this.lang('$0')}}
+# key: l3
+# --
+this.lang('$0')

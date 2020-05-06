@@ -1,10 +1,18 @@
-function a() {
-  this.a = '11';
+function Persion(name, age) {
+  this.name = name;
+  this.age = age;
+};
+
+Persion.prototype.sayName = function(){
+  console.log(this.name);
 }
+var o = new Object();
+Persion.call(o, 'dmlzj', 32);
+// o.sayName();
 
-let t = a;
+var p = new Persion('test', 34);
+p.sayName();
 
-console.log(t.a);
-setTimeout(() => {
-  console.log('test');
-}, 1000);
+console.log(o);
+console.log(Persion);
+ 

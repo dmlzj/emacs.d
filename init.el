@@ -16,6 +16,10 @@
 ;; web
 (require 'init-web)
 
+;; vue
+;; (require 'init-vue)
+;; dart
+(require 'init-dart)
 ;; org 设置
 (require 'init-org)
 

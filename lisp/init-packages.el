@@ -39,6 +39,7 @@
 		      ggtags
 		      use-package
 		      multi-term
+		      reveal-in-osx-finder
 		      
 		      powerline
 		      dashboard
@@ -51,7 +52,12 @@
 		      js2-mode
 		      web-mode
 		      go-mode
+		      
 		      vue-mode
+		      tern
+		      company-tern
+		      mmm-mode
+		      
 		      nginx-mode
 		      tss
 		      emmet-mode

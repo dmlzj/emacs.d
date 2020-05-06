@@ -30,6 +30,9 @@
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
 
+;; 快速打开文件
+(global-set-key (kbd "C-c z") 'reveal-in-osx-finder)
+
 ;; 显示buffer list
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 
@@ -105,5 +108,62 @@
 
 ;; web-mode 切换缩进
 (global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
+
+(defun print-elements-of-list (list)
+       "Print each element of LIST on a line of its own."
+       (while list
+	 (message "数据：%s" (car list))
+         (setq list (cdr list))))
+
+;; (defun my-test ()
+;;   ;; (shell-command "touch new.txt")
+;;   (setq fileName (buffer-file-name))
+;;   (message fileName)
+;;   ;; (interactive)
+;;   ;; ;; web development
+;;   ;; ;; (setq content (buffer-string))
+;;   ;; (setq regex "lang('\\(.*\\)')")
+;;   ;; (setq mylist (list))
+;;   ;; (while (re-search-forward regex nil t)
+;;   ;;   ;; (message "完整匹配结果：%s" (match-string 0))
+;;   ;;   (message "%s" (match-string 1))
+;;   ;;   (setq val (format "%s" (match-string 1)))
+;;   ;;   (push val mylist)
+;;   ;;   )
+;;   ;; ;; (print-elements-of-list mylist)
+;;   ;; (setq a (mapconcat 'identity mylist ","))
+;;   ;; (print a)
+;; )
+  ;; (message "结果：%s" (arr 0)))
+
+;; (defun my-test (name)
+;;     (interactive "Please input file name: ")
+
+;;     (shell-command "php test.php -a " name)
+;;   ;; (setq fileName (current-buffer))
+;;   ;; (message fileName)
+;;   ;; (interactive)
+;;   ;; ;; web development
+;;   ;; ;; (setq content (buffer-string))
+;;   ;; (setq regex "lang('\\(.*\\)')")
+;;   ;; (setq mylist (list))
+;;   ;; (while (re-search-forward regex nil t)
+;;   ;;   ;; (message "完整匹配结果：%s" (match-string 0))
+;;   ;;   (message "%s" (match-string 1))
+;;   ;;   (setq val (format "%s" (match-string 1)))
+;;   ;;   (push val mylist)
+;;   ;;   )
+;;   ;; ;; (print-elements-of-list mylist)
+;;   ;; (setq a (mapconcat 'identity mylist ","))
+;;   ;; (print a)
+;;   )
+(defun lang ()
+  (interactive)
+  (setq file_name (buffer-file-name))
+  (setq shell_str "php /Users/dmlzj/.emacs.d/lang.php -f ")
+  (setq shell_str (concat shell_str file_name))
+  (shell-command shell_str)
+  )
+(global-set-key (kbd "C-c l") 'lang)
 
 (provide 'init-keybindings)

@@ -1,6 +1,10 @@
 <template>
   <div>
     <a>test</a>
+    <b>
+      {{lang('请输入搜索关键字')}}
+      {{lang('hahahha')}}
+    </b>
   </div>
 </template>
 <script>
