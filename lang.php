@@ -22,8 +22,8 @@ foreach($source_file as $line => $content){
             foreach($target_file as $t_l => $t_c) {
                 $str_arr = explode(':', $t_c);
                 // print_r($str_arr);
-                $pattern = "/\'?" . $content . "\'?/";
-                if (preg_match($pattern, $str_arr[0])) {
+                $pattern = "/\'" . $content . "\'/";
+                if (isset($str_arr[1]) && preg_match($pattern, $str_arr[1])) {
                     $flag = true;
                 }
             }
