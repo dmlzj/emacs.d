@@ -10,29 +10,32 @@ $target_file_name = '/Users/dmlzj/www/weex/OneOne/src/js/config/lang/zh.js';
 
 foreach($source_file as $line => $content){
     // echo 'line '.($line + 1).':'.$content;
-    $pattern = "/lang\(\'(.*)\'\)/";
-    $num = preg_match($pattern, $content, $return);
+    $pattern = "/lang\(\'(.*)\'/U";
+    $num = preg_match_all($pattern, $content, $return, PREG_PATTERN_ORDER);
     if ($num) {
         // print_r($return[1]);
-        $content = $return[1];
-        $flag = false;
-        // 对比的文件
-        $target_file = file($target_file_name);
-        foreach($target_file as $t_l => $t_c) {
-            $str_arr = explode(':', $t_c);
-            // print_r($str_arr);
-            $pattern = "/\'?" . $content . "\'?/";
-            if (preg_match($pattern, $str_arr[0])) {
-                $flag = true;
+        foreach($return[1] as $v) {
+            $content = $v;
+            $flag = false;
+            // 对比的文件
+            $target_file = file($target_file_name);
+            foreach($target_file as $t_l => $t_c) {
+                $str_arr = explode(':', $t_c);
+                // print_r($str_arr);
+                $pattern = "/\'?" . $content . "\'?/";
+                if (preg_match($pattern, $str_arr[0])) {
+                    $flag = true;
+                }
+            }
+            $target_file_length = count($target_file);
+
+            if (!$flag) {
+                $str = "    '" . $content . "': '" . $content . "',\n";
+                // print_r($str);exit();
+                insert($target_file_name, $target_file_length - 2, $str);
             }
         }
-        $target_file_length = count($target_file);
-
-        if (!$flag) {
-            $str = "    '" . $content . "': '" . $content . "',\n";
-            // print_r($str);exit();
-            insert($target_file_name, $target_file_length - 2, $str);
-        }
+        
     }
     // print_r($num . '------------------' . $content);
     
