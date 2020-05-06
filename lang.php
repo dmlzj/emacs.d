@@ -48,5 +48,5 @@ function insert($file,$line,$txt){
         $newContent.= $v;
     }
     if(!file_put_contents($file,$newContent)) exit('无法写入数据');
-    echo '已经将' . $txt . '写入文档' . $file;
+    echo '已经将' . $txt . '写入文档' . $file . "\n";
 }
