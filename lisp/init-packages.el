@@ -21,6 +21,7 @@
 		      company-go
 		      tide
 		      docker
+		      company-tabnine
 		      ;; --- Themes ---
 		      monokai-theme
 		      ;; --- Better Editor ---
@@ -40,18 +41,22 @@
 		      use-package
 		      multi-term
 		      reveal-in-osx-finder
+		      google-translate
 		      
 		      powerline
 		      dashboard
 		      page-break-lines
 		      all-the-icons
 		      ;; --- Lang Mode ---
-		      
+		      cmake-ide
+		      rtags
 		      rjsx-mode
 		      multi-web-mode
 		      js2-mode
 		      web-mode
 		      go-mode
+		      meghanada
+		      quelpa-use-package
 		      
 		      vue-mode
 		      tern
@@ -97,6 +102,30 @@
   (package-refresh-contents)
   (package-install 'ac-php))
 
+;; java码提示
+(require 'meghanada)
+(add-hook 'java-mode-hook
+          (lambda ()
+            ;; meghanada-mode on
+            (meghanada-mode t)
+            (flycheck-mode +1)
+            (setq c-basic-offset 2)
+            ;; use code format
+            (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
+(cond
+ ((eq system-type 'windows-nt)
+  (setq meghanada-java-path (expand-file-name "bin/java.exe" (getenv "JAVA_HOME")))
+  (setq meghanada-maven-path "mvn.cmd"))
+ (t
+  (setq meghanada-java-path "java")
+  (setq meghanada-maven-path "mvn")))
+;; (require 'quelpa-use-package)
+
+;; (use-package rainbow-fart
+;;   :quelpa (rainbow-fart :fetcher "github" :repo "stardiviner/emacs-rainbow-fart")
+;;   :hook (prog-mode . rainbow-fart-mode))
+(require 'rtags) ;; optional, must have rtags installed
+(cmake-ide-setup)
 (provide 'init-packages)
 
 ;;; init-packages.el ends here

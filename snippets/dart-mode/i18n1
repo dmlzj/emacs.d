@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: i18n1
+# key: ln1
+# --
+I18nLocalizations.translate(context, "$0")

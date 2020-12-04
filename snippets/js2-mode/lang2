@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: create lang: lang('')
+# key: l4
+# --
+lang('$0')

@@ -5,15 +5,17 @@ $file_dir = $param_arr['f'];
 $source_file = file($file_dir);
 
 // 对比文件路径
-$target_file_name = '/Users/dmlzj/www/weex/OneOne/src/js/config/lang/zh.js';
+// $target_file_name = '/Users/dmlzj/www/weex/OneOne/src/js/config/lang/zh.js';
+$target_file_name = '/Users/dmlzj/www/flutter/project/minesweeper/static/i18n/zh.json';
 
 $is_have = false;
+
 foreach($source_file as $line => $content){
     // echo 'line '.($line + 1).':'.$content;
-    $pattern = "/lang\(\'(.*)\'/U";
+    // $pattern = "/lang\(\'(.*)\'/U";
+    $pattern = "/translate\(context, \"(.*)\"/U";
     $num = preg_match_all($pattern, $content, $return, PREG_PATTERN_ORDER);
     if ($num) {
-        // print_r($return[1]);
         foreach($return[1] as $v) {
             $content = $v;
             $flag = false;
@@ -30,13 +32,20 @@ foreach($source_file as $line => $content){
             $target_file_length = count($target_file);
 
             if (!$flag) {
-                if (!$is_have) {
-                    // 插入文件地址
-                    $str = '    // '. $file_dir . "\n";
-                    insert($target_file_name, $target_file_length - 2, $str);
-                    $is_have = true;
-                }
-                $str = "    '" . $content . "': '" . $content . "',\n";
+                // dart把插入文件去掉
+                
+                // weex
+                // if (!$is_have) {
+                //     // 插入文件地址
+                //     $str = '    // '. $file_dir . "\n";
+                //     insert($target_file_name, $target_file_length - 2, $str);
+                //     $is_have = true;
+                // }
+                // $str = "    '" . $content . "': '" . $content . "',\n";
+
+                
+                // dart
+                $str = "    \"" . $content . "\": \"" . $content . "\",\n";
                 // print_r($str);exit();
                 insert($target_file_name, $target_file_length - 2, $str);
             }

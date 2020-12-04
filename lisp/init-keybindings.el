@@ -166,4 +166,11 @@
   )
 (global-set-key (kbd "C-c l") 'lang)
 
+(require 'google-translate)
+(require 'google-translate-smooth-ui)
+(setq-default google-translate-enable-ido-completion t)
+(setq-default google-translate-default-source-language "zh_CN")
+(setq-default google-translate-default-target-language "en")
+;; (global-set-key (kbd "C-c t") 'google-translate-at-point)
+
 (provide 'init-keybindings)

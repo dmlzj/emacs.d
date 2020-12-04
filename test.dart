@@ -1,3 +1,5 @@
+import 'dart:convert';
 main() {
-  print('ss');
+  String test = "{\"a\": \"22\"}";
+  var res = jsonDecode(test);
 }

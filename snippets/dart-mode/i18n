@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: i18n
+# key: ln
+# --
+import 'package:i18n_localizations/i18n_localizations.dart';

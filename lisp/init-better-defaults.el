@@ -175,6 +175,13 @@
         (indent-buffer)
         (message "Indent buffer.")))))
 
+;; 顶部tab文件列表---不好看，太丑了
+;; (use-package awesome-tab
+;;   :load-path "~/.emacs.d/package/awesome-tab"
+;;   :config
+;;   (awesome-tab-mode t))
+
 (provide 'init-better-defaults)
+
 
 ;;; init-better-defaults.el ends here

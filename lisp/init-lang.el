@@ -54,7 +54,7 @@
 ;;             (cond ((equal web-mode-content-type "vue")
 ;;                    (my/web-vue-setup)))))
 
-;; php
+;;php
 (require 'php-mode)
 (add-hook 'php-mode-hook 'hs-minor-mode)
 (add-hook 'php-mode-hook
@@ -134,7 +134,7 @@
 ;; 	     (define-key ac-menu-map "\C-p" 'ac-previous)
 
 ;; 	     ))
-
+;; (add-to-list 'company-backends #'company-tabnine)
 
 (provide 'init-lang)
 

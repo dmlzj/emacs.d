@@ -15,4 +15,7 @@ p.sayName();
 
 console.log(o);
 console.log(Persion);
- 
+
+let temp = []
+console.log(Object.prototype.toString.call(temp))
+
